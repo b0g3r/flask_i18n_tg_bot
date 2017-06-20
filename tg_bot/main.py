@@ -20,15 +20,28 @@ users = {}
 
 @babel.localeselector
 def get_locale():
-    # language_code = update['message']['from']['language_code']
-    return 'ru'
+    user_lang_code = telegram_lang_code = None
+    if g.get('update'):
+        user_lang_code = users.get(g.update['message']['from']['id'], {}).get(
+            'lang_code')
+        telegram_lang_code = g.update['message']['from'].get(
+            'language_code').split('-', 1)[0]
+    lang_code = user_lang_code or telegram_lang_code or None
+    print(lang_code)
+    return lang_code
 
 
 @app.route('/{}'.format(secret), methods=['POST', 'GET'])
 def handler():
-    update = request.get_json()
+    g.update = request.get_json()
+    text = g.update['message']['text']
+    id = g.update['message']['from']['id']
 
-    bot.sendMessage(update['message']['chat']['id'], _('test'))
+    if text.startswith('/lang'):
+        lang_code = text.split()[1]
+        users[id] = {'lang_code': lang_code}
+    else:
+        bot.sendMessage(id, _('test'))
 
     return 'ok'
 
