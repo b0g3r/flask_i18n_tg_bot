@@ -12,7 +12,6 @@ app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 
 @babel.localeselector
 def selector():
-    if g.get('locale'):
-        return g.locale
+    return g.get('locale')
 
 app.run()
