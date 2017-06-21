@@ -1,3 +1,4 @@
 telepot
 Flask
-Flask-Babel
+Flask-Babel # original flask-babel doesn't support blueprints and
+# app-specified localeselector :(

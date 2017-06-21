@@ -48,9 +48,6 @@ coverage.xml
 *,cover
 .hypothesis/
 
-# Translations
-*.mo
-*.pot
 
 # Django stuff:
 *.log
@@ -139,3 +136,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+!/tg_bot/translations/ru/LC_MESSAGES/messages.mo

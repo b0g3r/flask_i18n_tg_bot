@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-20 12:41+0300\n"
+"POT-Creation-Date: 2017-06-21 14:30+0300\n"
 "PO-Revision-Date: 2017-06-20 12:52+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,7 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.4.0\n"
 
-#: main.py:35
+#: tg_bot/main.py:21
+msgid "HI!"
+msgstr "Привет!"
+
+#: tg_bot/subapp.py:46
 msgid "test"
 msgstr "тест"
 
