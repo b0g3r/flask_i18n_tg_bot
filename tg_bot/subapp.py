@@ -55,6 +55,7 @@ def bad(e):
     print()
     print(2)
     print(3)
+    print(4)
     return 'ok'
 
 init()
