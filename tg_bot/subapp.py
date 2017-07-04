@@ -10,8 +10,8 @@ from flask_babel import gettext as _
 subapp = Blueprint('subapp', __name__)
 
 token = os.environ['BOT_TOKEN']
-secret = uuid.uuid1().hex
-host = 'https://b319542c.ngrok.io'
+secret = '1234'#uuid.uuid1().hex
+host = 'https://7ef11beb.ngrok.io'
 
 bot = telepot.Bot(token)
 
@@ -20,6 +20,7 @@ users = {}
 
 @subapp.before_request
 def set_locale():
+    raise ValueError
     user_lang_code = telegram_lang_code = None
     update = request.get_json()
     if update:
@@ -46,6 +47,15 @@ def handler():
     return 'ok'
 
 
-@subapp.before_app_first_request
 def init():
+    subapp.register_error_handler(ValueError, bad)
     bot.setWebhook('{0}/{1}'.format(host, secret))
+
+def bad(e):
+    print()
+    print(2)
+    print(3)
+    return 'ok'
+
+init()
+
