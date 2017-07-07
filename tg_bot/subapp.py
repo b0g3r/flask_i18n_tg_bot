@@ -39,7 +39,7 @@ def handler():
     id = g.update['message']['from']['id']
 
     if text.startswith('/lang'):
-        lang_code = text.split()[1]
+        lang_code = texsst.split()[1]
         users[id] = {'lang_code': lang_code}
     else:
         bot.sendMessage(id, _('test'))
